@@ -1,0 +1,16 @@
+{{#if notFound}}
+  <p>No listing found with this ID.</p>
+{{else}}
+  <h3>Listing Details</h3>
+  <p><strong>ID:</strong> {{result.id}}</p>
+  <p><strong>Name:</strong> {{result.name}}</p>
+  <p><strong>Host Name:</strong> {{result.host_name}}</p>
+  <p><strong>Neighbourhood:</strong> {{result.neighbourhood}}</p>
+  <p><strong>Room Type:</strong> {{result.room_type}}</p>
+  <p><strong>Property Type:</strong> {{result.property_type}}</p>
+  <p><strong>Price:</strong> {{result.price}}</p>
+  
+  {{#if result.picture_url}}
+    <img src="{{result.picture_url}}" alt="Listing Image" style="max-width:400px;" />
+  {{/if}}
+{{/if}}

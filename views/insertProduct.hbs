@@ -1,0 +1,52 @@
+<div class="container form-container">
+  <h2>{{title}}</h2>
+
+  {{#if errors}}
+    <ul class="error-list">
+      {{#each errors}}
+        <li>{{msg}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  <form action="/viewData/insert" method="POST">
+    <div class="form-row">
+      <label for="id">ID:</label>
+      <input type="number" id="id" name="id" required />
+    </div>
+
+    <div class="form-row">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <div class="form-row">
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" step="0.01" required />
+    </div>
+
+    <div class="form-row">
+      <label for="host_name">Host Name:</label>
+      <input type="text" id="host_name" name="host_name" />
+    </div>
+
+    <div class="form-row">
+      <label for="neighbourhood">Neighbourhood:</label>
+      <input type="text" id="neighbourhood" name="neighbourhood" />
+    </div>
+
+    <div class="form-row">
+      <label for="room_type">Room Type:</label>
+      <input type="text" id="room_type" name="room_type" />
+    </div>
+
+    <div class="form-row">
+      <label for="property_type">Property Type:</label>
+      <input type="text" id="property_type" name="property_type" />
+    </div>
+
+    <div class="form-row form-row-submit">
+      <button type="submit" class="btn-link">Insert</button>
+    </div>
+  </form>
+</div>

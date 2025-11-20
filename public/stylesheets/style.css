@@ -1,0 +1,207 @@
+/* ========== General Body / HTML ========= */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* ========== Navigation Bar ========= */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 12px 0;
+  border-bottom: 2px solid white;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  font-size: 1.05em;
+}
+nav a:hover {
+  color: #ffcc00;
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 3px;
+}
+nav a.active {
+  color: #ffcc00;
+  border-bottom: 2px solid #ffcc00;
+}
+
+/* ========== Header / Footer ========= */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header {
+  background-color: #003d80;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+#content {
+  flex: 1;              
+  padding: 30px;
+  text-align: center;
+}
+footer {
+  background-color: #003d80;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9em;
+}
+
+/* ========== Highlight rows ========= */
+.highlight {
+  background-color: #fff3cd; 
+  color: #333;
+  font-weight: bold;
+}
+
+/* ========== Containers ========= */
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
+/* ========== Headings ========= */
+h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  /* color: #003d80; */
+}
+
+/* ========== Form Styling ========= */
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #003d80;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.form-row label {
+  flex: 0 0 150px;
+  font-weight: bold;
+  color: #333;
+}
+.form-row input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+}
+.form-row-submit {
+  display: flex;
+  justify-content: center;
+}
+/* Buttons */
+/* Universal btn-link styling for <a> and <button> */
+a.btn-link, button.btn-link {
+  display: inline-block;
+  background-color: #003d80;
+  color: white !important; /* force white text */
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-decoration: none !important; /* remove underline */
+  transition: all 0.3s ease;
+}
+
+a.btn-link:hover, button.btn-link:hover {
+  background-color: #0050b3; /* slightly lighter blue */
+  color: white !important; /* force white text on hover */
+  text-decoration: none !important;
+}
+
+
+
+
+/* ========== Insert / Delete Forms ========= */
+.insert-form .form-group {
+  margin-bottom: 15px;
+}
+.insert-form .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.insert-form .form-group input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* ========== Error / Success Messages ========= */
+.error-list {
+  color: red;
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.success-container .success-msg {
+  font-size: 18px;
+  color: green;
+  margin-bottom: 20px;
+}
+
+/* ========== Listing Details ========= */
+.listing-details {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.listing-details li {
+  margin-bottom: 8px;
+}
+
+/* ========== Links Section ========= */
+.links {
+  margin-top: 20px;
+  text-align: center;
+}
+.links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #003d80;
+  font-weight: bold;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Table / Highlighted Rows ========= */
+.table-container {
+  overflow-x: auto;
+}

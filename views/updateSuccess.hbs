@@ -1,0 +1,17 @@
+{{!-- layout/main.hbs --}}
+
+<div class="container success-container">
+  <h2>{{title}}</h2>
+  <p class="success-msg">Listing has been updated successfully!</p>
+
+  <ul class="listing-details">
+    <li><strong>ID:</strong> {{listing.id}}</li>
+    <li><strong>Name:</strong> {{listing.name}}</li>
+    <li><strong>Price:</strong> ${{listing.price}}</li>
+  </ul>
+
+  <div class="links">
+    <a href="/update/product" class="btn-link">Update Another Listing</a>
+    <a href="/allData" class="btn-link">View All Listings</a>
+  </div>
+</div>

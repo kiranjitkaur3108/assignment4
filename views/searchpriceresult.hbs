@@ -1,0 +1,52 @@
+<h1>{{title}}</h1>
+
+{{#if results.length}}
+  <table border="1" cellpadding="8" cellspacing="0" style="margin:auto; border-collapse:collapse; width:90%;">
+    <thead style="background-color:#003d80; color:white;">
+      <tr>
+        <th>Property ID</th>
+        <th>Name</th>
+        <th>Host</th>
+        <th>Neighbourhood</th>
+        <th>Room Type</th>
+        <th>Price</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each results}}
+        <tr style="{{#if (eq name 'N/A')}}background-color:#fff3cd;{{/if}}">
+          <td>{{id}}</td>
+          <td>{{emptyName name}}</td>
+          <td>{{host_name}}</td>
+          <td>{{neighbourhood}}</td>
+          <td>{{room_type}}</td>
+          <td>{{price}}</td>
+          <td>
+            {{#if image_url}}
+  <img src="{{image_url}}" alt="{{name}}" width="100">
+{{else}}
+  <span style="color:gray;">No image</span>
+{{/if}}
+
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div style="margin-top:20px; text-align:center;">
+    {{#if (gt page 1)}}
+      <a href="/viewData/price?page={{sub page 1}}&minPrice={{minPrice}}&maxPrice={{maxPrice}}">Previous</a>
+    {{/if}}
+
+    Page {{page}} of {{totalPages}}
+
+    {{#if (lt page totalPages)}}
+      <a href="/viewData/price?page={{add page 1}}&minPrice={{minPrice}}&maxPrice={{maxPrice}}">Next</a>
+    {{/if}}
+  </div>
+{{else}}
+  <p style="color:red;">No listings found within this price range.</p>
+{{/if}}

@@ -1,0 +1,48 @@
+<h1>{{title}}</h1>
+
+<table border="1" cellpadding="6" cellspacing="0" style="margin:auto; border-collapse:collapse; width:90%;">
+  <thead style="background-color:#003d80; color:white;">
+    <tr>
+      <th>ID</th>
+      <th>Property Name</th>
+      <th>Host Name</th>
+      <th>Neighbourhood</th>
+      <th>Room Type</th>
+      <th>Price</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data}}
+      <tr {{#if (eq (emptyName name) "N/A")}}style="background-color:#fff3cd;"{{/if}}>
+
+        <td>{{#if id}}{{id}}{{else}}N/A{{/if}}</td>
+        <td>{{#if name}}{{name}}{{else}}N/A{{/if}}</td>
+        <td>{{#if host_name}}{{host_name}}{{else}}N/A{{/if}}</td>
+        <td>{{#if neighbourhood}}{{neighbourhood}}{{else}}N/A{{/if}}</td>
+        <td>{{#if room_type}}{{room_type}}{{else}}N/A{{/if}}</td>
+        <td>{{#if price}}{{price}}{{else}}N/A{{/if}}</td>
+        <td>
+          {{#if image_url}}
+            <img src="{{image_url}}" alt="{{name}}" width="100">
+          {{else}}
+            <span style="color:gray;">No image</span>
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<!-- Pagination -->
+<div style="margin-top:20px;">
+  {{#if (gt page 1)}}
+    <a href="/viewData?page={{sub page 1}}">Previous</a>
+  {{/if}}
+
+  Page {{page}} of {{totalPages}}
+
+  {{#if (lt page totalPages)}}
+    <a href="/viewData?page={{add page 1}}">Next</a>
+  {{/if}}
+</div>

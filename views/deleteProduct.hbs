@@ -1,0 +1,22 @@
+<div class="form-container">
+  <h2>{{title}}</h2>
+
+  {{#if errors}}
+    <ul class="error-list">
+      {{#each errors}}
+        <li>{{msg}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  <form action="/delete/product" method="POST" class="insert-form">
+    <div class="form-row">
+      <label for="id">Listing ID:</label>
+      <input type="text" name="id" id="id" required />
+    </div>
+
+    <div class="form-row form-row-submit">
+      <button type="submit" class="btn-link">Delete Listing</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,49 @@
+<h2>{{title}}</h2>
+<p style="font-style:italic; color:gray;">Unfiltered Airbnb data display (no helpers or data cleaning).</p>
+
+<table border="1" cellpadding="8" cellspacing="0" style="margin:auto; border-collapse:collapse; width:90%;">
+  <thead style="background-color:#003d80; color:white;">
+    <tr>
+      <th>ID</th>
+      <th>Property Name</th>
+      <th>Host Name</th>
+      <th>Neighbourhood</th>
+      <th>Room Type</th>
+      <th>Price</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{NAME}}</td>
+        <td>{{lookup this "host name"}}</td>
+        <td>{{neighbourhood}}</td>
+        <td>{{lookup this "room type"}}</td>
+        <td>{{price}}</td>
+        <td>
+          {{#if thumbnail}}
+            <img src="{{thumbnail}}" alt="{{NAME}}" width="100">
+          {{else if images.[0]}}
+            <img src="{{images.[0]}}" alt="{{NAME}}" width="100">
+          {{else}}
+            <span style="color:gray;">No image</span>
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<div style="margin-top:20px;">
+  {{#if (gt page 1)}}
+    <a href="/allData?page={{sub page 1}}">Previous</a>
+  {{/if}}
+
+  Page {{page}} of {{totalPages}}
+
+  {{#if (lt page totalPages)}}
+    <a href="/allData?page={{add page 1}}">Next</a>
+  {{/if}}
+</div>

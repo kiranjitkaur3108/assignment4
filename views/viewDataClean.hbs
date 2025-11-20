@@ -1,0 +1,48 @@
+<h2>{{title}}</h2>
+<p style="font-style:italic; color:gray;">Cleaned Airbnb data (rows without a property name are removed).</p>
+
+<table border="1" cellpadding="10" cellspacing="0" style="margin:auto; border-collapse:collapse; width:90%;">
+  <thead style="background-color:#003d80; color:white;">
+    <tr>
+      <th>ID</th>
+      <th>Property Name</th>
+      <th>Host Name</th>
+      <th>Neighbourhood</th>
+      <th>Room Type</th>
+      <th>Price</th>
+      <th>Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+        <td>{{host_name}}</td>
+        <td>{{neighbourhood}}</td>
+        <td>{{room_type}}</td>
+        <td>{{price}}</td>
+        <td>
+          {{#if picture_url}}
+            <img src="{{picture_url}}" alt="{{name}}" width="100">
+          {{else}}
+            <span style="color:gray;">No Image</span>
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<!-- Pagination -->
+<div style="margin-top:20px; text-align:center;">
+  {{#if (gt page 1)}}
+    <a href="/viewData/clean?page={{sub page 1}}" style="margin-right:10px;">Previous</a>
+  {{/if}}
+
+  Page {{page}} of {{totalPages}}
+
+  {{#if (lt page totalPages)}}
+    <a href="/viewData/clean?page={{add page 1}}" style="margin-left:10px;">Next</a>
+  {{/if}}
+</div>

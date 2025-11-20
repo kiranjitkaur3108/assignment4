@@ -1,0 +1,19 @@
+<h1>Search Airbnb Listings by Price Range</h1>
+
+<form action="/viewData/price" method="POST" class="form">
+  <label for="minPrice">Minimum Price:</label>
+  <input type="text" id="minPrice" name="minPrice" required>
+
+  <label for="maxPrice">Maximum Price:</label>
+  <input type="text" id="maxPrice" name="maxPrice" required>
+
+  <button type="submit" class="btn-link">Search</button>
+</form>
+
+{{#if errors}}
+  <ul style="color:red;">
+    {{#each errors}}
+      <li>{{this.msg}}</li>
+    {{/each}}
+  </ul>
+{{/if}}

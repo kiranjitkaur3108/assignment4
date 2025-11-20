@@ -1,0 +1,40 @@
+<h1>{{title}}</h1>
+
+{{#if results.length}}
+  <table border="1" cellpadding="8" cellspacing="0" style="margin:auto; border-collapse:collapse; width:90%;">
+    <thead style="background-color:#003d80; color:white;">
+      <tr>
+        <th>Property ID</th>
+        <th>Property Name</th>
+        <th>Host Name</th>
+        <th>Neighbourhood</th>
+        <th>Room Type</th>
+        <th>Price</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each results}}
+        <tr style="{{#unless name}}background-color:#fff3cd;{{/unless}}">
+          <td>{{id}}</td>
+          <td>{{name}}</td>
+          <td>{{host_name}}</td>
+          <td>{{neighbourhood}}</td>
+          <td>{{room_type}}</td>
+          <td>{{price}}</td>
+          <td>
+            {{#if picture_url}}
+              <img src="{{picture_url}}" alt="{{name}}" width="100">
+            {{else}}
+              <span style="color:gray;">No image</span>
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p style="color:red; text-align:center;">
+    No properties found with name containing "{{nameInput}}".
+  </p>
+{{/if}}

@@ -1,0 +1,21 @@
+{{!-- Use your container class for styling --}}
+<div class="container success-container">
+  <h2>{{title}}</h2>
+
+  <p class="success-msg">The listing has been deleted successfully!</p>
+
+  <ul class="listing-details">
+    <li><strong>ID:</strong> {{listing.id}}</li>
+    <li><strong>Name:</strong> {{listing.name}}</li>
+    <li><strong>Host Name:</strong> {{listing.host_name}}</li>
+    <li><strong>Neighbourhood:</strong> {{listing.neighbourhood}}</li>
+    <li><strong>Room Type:</strong> {{listing.room_type}}</li>
+    <li><strong>Property Type:</strong> {{listing.property_type}}</li>
+    <li><strong>Price:</strong> ${{listing.price}}</li>
+  </ul>
+
+  <div class="links">
+    <a href="/delete/product" class="btn-link">Delete Another Listing</a> | 
+    <a href="/allData" class="btn-link">View All Listings</a>
+  </div>
+</div>

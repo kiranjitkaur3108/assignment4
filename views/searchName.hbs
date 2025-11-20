@@ -1,0 +1,21 @@
+<h2>{{title}}</h2>
+
+<form action="/search/name" method="POST" class="search-form" style="margin-bottom:20px;">
+  <label for="property_name">Enter Property Name:</label>
+  <input
+    type="text"
+    id="property_name"
+    name="property_name"
+    placeholder="e.g. Cozy Apartment"
+    required
+  />
+  <button type="submit" class="btn-link">Search</button>
+</form>
+
+{{#if errors}}
+  <ul class="error-list" style="color:red;">
+    {{#each errors}}
+      <li>{{this.msg}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
