@@ -11,20 +11,14 @@ const webRoutes = require("./routes/web");
 
 const app = express();
 
-// ------------------------------
-// BODY PARSING
-// ------------------------------
+// body parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ------------------------------
-// STATIC FILES
-// ------------------------------
+//static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// ------------------------------
-// VIEW ENGINE (HANDLEBARS) WITH HELPERS AND PROTOTYPE ACCESS
-// ------------------------------
+// view engine with jelpers
 app.engine(
   "hbs",
   exphbs.engine({
@@ -49,9 +43,9 @@ app.engine(
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
-// ------------------------------
-// CONNECT TO MONGODB
-// ------------------------------
+
+// connect to mongodb
+
 mongoose
   .connect(config.url)
   .then(() => console.log("MongoDB connected"))
@@ -62,26 +56,24 @@ db.on("connected", () => console.log("Mongoose connected"));
 db.on("error", (err) => console.error("Mongoose error:", err));
 db.on("disconnected", () => console.log("Mongoose disconnected"));
 
-// Graceful shutdown
+//  shutdown
 process.on("SIGINT", async () => {
   await db.close();
   console.log("Mongoose disconnected on app termination");
   process.exit(0);
 });
 
-// ------------------------------
-// API ROUTES
-// ------------------------------
+
+//api routes
+
 app.use("/api/listings", listingRoutes);
 
-// ------------------------------
-// FRONTEND ROUTES
-// ------------------------------
+
+// frontend routes
+
 app.use("/", webRoutes);
 
-// ------------------------------
-// GLOBAL ERROR HANDLER
-// ------------------------------
+//error handeler
 app.use((err, req, res, next) => {
   console.error(err);
   if (err.name === "ValidationError") {
@@ -92,9 +84,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Internal Server Error" });
 });
 
-// ------------------------------
-// START SERVER
-// ------------------------------
+// server start  
 const PORT = config.port || 8000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

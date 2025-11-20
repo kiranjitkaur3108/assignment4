@@ -1,14 +1,14 @@
 const Listing = require("../models/listing");
 
 
-// GET all listings (limited)
+// get all listings (limited)
 exports.getAll = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;   
     const limit = parseInt(req.query.limit) || 50; 
 
     const listings = await Listing.find()
-      .sort({ id: 1 })              // Sort by Airbnb id ascending
+      .sort({ id: 1 })             
       .skip((page - 1) * limit)     
       .limit(limit);                
 
@@ -19,7 +19,7 @@ exports.getAll = async (req, res) => {
 };
 
 
-// GET a single listing by ID
+// get a single listing by ID
 exports.getOne = async (req, res) => {
   try {
     const listing = await Listing.findOne({ id: req.params.id });
@@ -30,7 +30,7 @@ exports.getOne = async (req, res) => {
   }
 };
 
-// CREATE a new listing
+// create a new listing
 exports.create = async (req, res) => {
   try {
     const listing = await Listing.create(req.body);
@@ -40,7 +40,7 @@ exports.create = async (req, res) => {
   }
 };
 
-// UPDATE a listing by ID
+// update a listing by ID
 exports.update = async (req, res) => {
   try {
     const listing = await Listing.findOneAndUpdate(
@@ -55,7 +55,7 @@ exports.update = async (req, res) => {
   }
 };
 
-// DELETE a listing by ID
+// delete a listing by ID
 exports.remove = async (req, res) => {
   try {
     const listing = await Listing.findOneAndDelete({ id: req.params.id });
